@@ -6,7 +6,7 @@ This is a simple Android app built with Kotlin for tracking personal expenses. T
 
 🧠 Features
 
-- 🔐 Login & Registration**
+- 🔐 Login & Registration
   - User authentication with username and password.
 
 - 📁 Category Management
@@ -38,10 +38,7 @@ This is a simple Android app built with Kotlin for tracking personal expenses. T
 
 - Kotlin
 - Android SDK
-- RoomDB (Jetpack)
-- GitHub Actions (CI)
-- MVVM Architecture (Simple)
-- Intent-based Activity Navigation
+- RoomDB
 
 
 📹 Demo Video
