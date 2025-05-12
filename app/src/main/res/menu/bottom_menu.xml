@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        />
+
+    <item
+        android:id="@+id/bottom_income"
+        android:icon="@drawable/income"
+        android:title="Income"/>
+
+    <item
+        android:id="@+id/bottom_expense"
+        android:icon="@drawable/expense"
+        android:title="Expenses"/>
+
+    <item
+        android:id="@+id/bottom_profile"
+        android:icon="@drawable/profile"
+        android:title="Profile"/>
+</menu>
