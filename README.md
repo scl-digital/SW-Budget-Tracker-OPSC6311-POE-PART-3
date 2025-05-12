@@ -1,3 +1,11 @@
+👥  Group Members: 
+Shinsa Lyonga Lomboto – Student No: [ ST10312918 ]
+Khanya Mdyosi  – Student No: [ ST10376145 ]
+Babalo Nogqala  – Student No: [ ST10268692 ]
+Lwando Sizani  – Student No: [ ST10384260 ]
+Wolathile Putu  – Student No: [ ST10354137 ]
+
+
 Personal Budget Tracker App 📊💰
 
 This is a simple Android app built with Kotlin for tracking personal expenses. The app allows users to log in, create categories, add expenses, attach photos, and set monthly spending goals — all stored securely offline using RoomDB.
@@ -43,7 +51,7 @@ This is a simple Android app built with Kotlin for tracking personal expenses. T
 
 📹 Demo Video
 
-▶️ [Watch the demo video here](https://www.youtube.com/watch?v=YOUR_VIDEO_LINK_HERE)  
+▶️ [Watch the demo video here](https://www.youtube.com/watch?v=1X50gWf8iuc)  
 
 
 
