@@ -55,4 +55,4 @@ Click [here](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/releases) to downlo
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/budget-tracker-app.git
+   git clone https://github.com/scl-digital/OPSC6311-Part2-Budget-Tracker.git
