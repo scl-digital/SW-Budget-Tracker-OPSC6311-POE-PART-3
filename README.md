@@ -75,7 +75,7 @@ How we use GitHub:
 ---
 
 ⚙️ GitHub Actions & CI/CD
-**GitHub Actions** is a powerful tool for automating workflows such as building, testing, and deploying code. While this project does not currently have any GitHub Actions workflows set up, here's how they could be used:
+**GitHub Actions** is a powerful tool for automating workflows such as building, testing, and deploying code. here's how they could be used:
 - **Automated Builds:** Compile the app on every push or pull request
 - **Automated Testing:** Run unit and UI tests automatically
 - **Release Automation:** Build and upload APKs to GitHub Releases
