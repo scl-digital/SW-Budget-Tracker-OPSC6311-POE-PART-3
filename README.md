@@ -51,7 +51,7 @@ This is a simple Android app built with Kotlin for tracking personal expenses. T
 
 📹 Demo Video
 
-▶️ [Watch the demo video here](https://www.youtube.com/watch?v=1X50gWf8iuc)  
+▶️ [Watch the demo video here]( https://www.youtube.com/watch?v=pKezALaAtew )  
 
 
 
@@ -63,4 +63,4 @@ Click [here](https://github.com/scl-digital/OPSC6311-Part2-Budget-Tracker/releas
 
 1. Clone the repo:
   
-   git clone https://github.com/scl-digital/OPSC6311-Part2-Budget-Tracker.git
+   git clone https://github.com/scl-digital/SW-Budget-Tracker-OPSC6311-POE-PART-3.git
