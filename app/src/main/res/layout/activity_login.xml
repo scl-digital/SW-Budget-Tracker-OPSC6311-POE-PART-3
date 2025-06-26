@@ -8,43 +8,24 @@
     tools:context=".Login">
 
 
-    <RelativeLayout
-        android:id="@+id/login_login"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginLogin"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/login_btn"
-
+        android:background="#2196F3"
+        android:backgroundTint="#6192DE"
+        android:text="Log In"
+        android:textAllCaps="true"
+        android:textColor="#D9E7E5"
+        android:textSize="20sp"
+        app:cornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.58"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:src="@drawable/login_btn"
-            app:tint="#30000000" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="7dp"
-            android:background="@drawable/login_btn"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Log In"
-            android:textAllCaps="true"
-            android:textColor="#D9E7E5"
-            android:textSize="20dp" />
-    </RelativeLayout>
+        tools:ignore="MissingConstraints" />
 
 
     <TextView
@@ -67,7 +48,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
         android:text="LOG IN"
-        android:textColor="#37474F"
+        android:textColor="#194FA3"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,7 +61,7 @@
         app:layout_constraintVertical_bias="0.183" />
 
     <EditText
-        android:id="@+id/login_Username"
+        android:id="@+id/loginUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -91,7 +72,7 @@
         android:drawableLeft="@drawable/baseline_person_24"
         android:elegantTextHeight="false"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Enter your email"
         android:inputType="text"
         android:padding="15dp"
         android:paddingStart="10dp"
@@ -107,7 +88,7 @@
         app:layout_constraintVertical_bias="0.291" />
 
     <EditText
-        android:id="@+id/login_Password"
+        android:id="@+id/loginPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -116,7 +97,7 @@
         android:background="@drawable/input_bg"
         android:drawableLeft="@drawable/baseline_password_24"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Enter your password"
         android:inputType="textPassword"
         android:padding="15dp"
         android:paddingStart="10dp"

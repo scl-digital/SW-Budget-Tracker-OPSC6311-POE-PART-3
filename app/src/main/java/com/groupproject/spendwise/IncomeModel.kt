@@ -3,10 +3,12 @@ package com.groupproject.spendwise
 import com.google.android.material.textfield.TextInputLayout
 
 data class IncomeModel(
-    var income: String? = null,
-    var date: String? = null,
-    var type: String? = null,
-    var icon: Int? = null
+    val income: String? = null,
+    val date: String? = null,
+    val type: String? = null,
+    val icon: Int? = null,
+    val description: String? = null,
+    val photoUrl: String? = null
 )
 
 

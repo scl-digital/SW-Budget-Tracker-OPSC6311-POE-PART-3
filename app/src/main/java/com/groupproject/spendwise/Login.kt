@@ -10,7 +10,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.groupproject.spendwise.databinding.ActivityLoginBinding
 
-var username: String = ""
+var userEmail: String = ""
 
 @Suppress("DEPRECATION")
 class Login : AppCompatActivity() {
@@ -29,44 +29,64 @@ class Login : AppCompatActivity() {
 
 
         binding.loginLogin.setOnClickListener {
-
-            val uname = binding.loginUsername.text.toString()
+            Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show()
+            val email = binding.loginUsername.text.toString()
             val password = binding.loginPassword.text.toString()
-            username = uname
 
-
-
-            dbRef.child(uname).get().addOnSuccessListener{
-                val email = it.child("email").value.toString()
-                if (uname.isNotEmpty() && password.isNotEmpty()){
-
-                    firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-                        if (it.isSuccessful){
-
-                            val intent = Intent(this@Login, Home::class.java)
-                            intent.putExtra("username", uname)
-                            startActivity(intent)
-                            this.finish()
-
-
-
-                        }else{
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        userEmail = email
+                        val intent = Intent(this@Login, Home::class.java)
+                        intent.putExtra("userEmail", userEmail)
+                        val userKey = userEmail.replace(Regex("[.#$\\[\\]]"), "_")
+                        val achievementsRef = FirebaseDatabase.getInstance().getReference("Users").child(userKey).child("achievements")
+                        // Initialize all achievements to false if node does not exist
+                        achievementsRef.get().addOnSuccessListener { achSnap ->
+                            if (!achSnap.exists()) {
+                                val initialAchievements = mapOf(
+                                    "first_log" to false,
+                                    "first_income" to false,
+                                    "first_expense" to false,
+                                    "consistent_expense_logging" to false
+                                )
+                                achievementsRef.setValue(initialAchievements)
+                            }
                         }
+                        // Reset SharedPreferences expense count for this user
+                        val prefs = getSharedPreferences("expense_achievements", MODE_PRIVATE)
+                        prefs.edit().putInt("expense_count_$userKey", 0).apply()
+                        achievementsRef.child("first_log").get().addOnSuccessListener { snap ->
+                            if (!(snap.getValue(Boolean::class.java) ?: false)) {
+                                achievementsRef.child("first_log").setValue(true)
+                                val notificationManager = getSystemService(android.content.Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
+                                val channelId = "achievements"
+                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                    val channel = android.app.NotificationChannel(channelId, "Achievements", android.app.NotificationManager.IMPORTANCE_DEFAULT)
+                                    notificationManager.createNotificationChannel(channel)
+                                }
+                                val builder = androidx.core.app.NotificationCompat.Builder(this, channelId)
+                                    .setSmallIcon(R.drawable.ic_launcher_foreground)
+                                    .setContentTitle("Achievement Unlocked!")
+                                    .setContentText("First Log In Achievement!")
+                                    .setPriority(androidx.core.app.NotificationCompat.PRIORITY_DEFAULT)
+                                notificationManager.notify(1001, builder.build())
+                                androidx.appcompat.app.AlertDialog.Builder(this)
+                                    .setTitle("Achievement Unlocked!")
+                                    .setMessage("You have unlocked: First Log In!")
+                                    .setPositiveButton("OK", null)
+                                    .show()
+                            }
+                        }
+                        startActivity(intent)
+                        this.finish()
+                    } else {
+                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
-                }else{
-                    Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
                 }
-
-
-
-            }.addOnFailureListener {
-                Toast.makeText(this, "Something Went Wrong", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
-
-
-
-
 
 
 

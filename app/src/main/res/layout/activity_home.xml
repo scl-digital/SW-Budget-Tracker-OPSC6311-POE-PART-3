@@ -7,56 +7,6 @@
     tools:context=".Home"
     android:background="@drawable/background">
 
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@color/DarkerBlue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:padding="55dp" />
-
-        <ImageView
-            android:id="@+id/home_logout_btn"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/logout" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dashboard"
-            android:textSize="25dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:textColor="@color/DarkGreen"/>
-
-        <ImageView
-            android:layout_width="66dp"
-            android:layout_height="65dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/spendwise"
-            android:layout_centerVertical="true"/>
-
-
-    </RelativeLayout>
-
-
     <include
         android:id="@+id/include2"
         layout="@layout/home_page_layout" />

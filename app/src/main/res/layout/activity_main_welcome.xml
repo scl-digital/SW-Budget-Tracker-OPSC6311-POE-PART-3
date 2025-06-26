@@ -12,31 +12,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="256dp"
-        android:text="Welcome!"
-        android:textColor="#37474F"
-        android:textSize="50sp"
+        android:text="Welcome to SW Budget Tracker"
+        android:textColor="#194FA3"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView6"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:shapeAppearanceOverlay="@style/circular"
-        app:strokeWidth="5dp"
-        app:strokeColor="#37474F"
-        android:padding="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.546"
-        app:srcCompat="@drawable/welcome_logo" />
+        app:shapeAppearanceOverlay="@style/circular"
+        app:srcCompat="@drawable/welcome_logo"
+        app:strokeColor="#37474F"
+        app:strokeWidth="0dp" />
 
     <RelativeLayout
         android:id="@+id/welcome_login"
@@ -69,6 +68,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#3F51B5"
             android:gravity="center"
             android:text="Log In"
             android:textAllCaps="true"
@@ -106,6 +106,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#3F51B5"
             android:gravity="center"
             android:text="Register"
             android:textAllCaps="true"

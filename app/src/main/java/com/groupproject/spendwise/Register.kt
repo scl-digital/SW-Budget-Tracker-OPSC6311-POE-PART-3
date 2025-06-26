@@ -9,7 +9,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.groupproject.spendwise.databinding.ActivityRegisterBinding
-import kotlinx.android.synthetic.main.activity_register.*
+import com.google.firebase.FirebaseApp
+import android.util.Log
 
 
 class Register : AppCompatActivity() {
@@ -28,6 +29,12 @@ class Register : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Log Firebase project info at runtime
+        val options = FirebaseApp.getInstance().options
+        Log.d("FIREBASE_PROJECT", "Project ID: ${options.projectId}")
+        Log.d("FIREBASE_PROJECT", "App ID: ${options.applicationId}")
+        Log.d("FIREBASE_PROJECT", "API Key: ${options.apiKey}")
+
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.registerRegister.setOnClickListener{
@@ -40,16 +47,24 @@ class Register : AppCompatActivity() {
             if (fname.isNotEmpty() && uname.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && cpassword.isNotEmpty()){
 
                 if (password == cpassword){
-                    firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-                        if (it.isSuccessful){
-                            saveUserdata()
-                            val intent = Intent(this, Login::class.java)
-                            startActivity(intent)
-                            this.finish()
-                        }else{
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    firebaseAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful){
+                                Log.d("FIREBASE_AUTH", "User registered: $email")
+                                Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+                                saveUserdata()
+                                val intent = Intent(this, Login::class.java)
+                                startActivity(intent)
+                                this.finish()
+                            } else {
+                                Log.e("FIREBASE_AUTH", "Registration failed: ${task.exception?.message}")
+                                Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                            }
                         }
-                    }
+                        .addOnFailureListener { err ->
+                            Log.e("FIREBASE_AUTH", "Registration error: ${err.message}")
+                            Toast.makeText(this, "Registration error: ${err.message}", Toast.LENGTH_LONG).show()
+                        }
                 }else{
                     Toast.makeText(this, "Password does not matched", Toast.LENGTH_SHORT).show()
                 }
